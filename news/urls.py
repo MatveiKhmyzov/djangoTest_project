@@ -5,4 +5,6 @@ from news.models import Articles
 urlpatterns = [
     re_path(r'^$', ListView.as_view(queryset=Articles.objects.all().order_by("-date")[:20],
                                     template_name="news/posts.html")),
+    re_path(r'^(?P<pk>\d+)$', DetailView.as_view(model = Articles, template_name
+    = "news/post.html"))
 ]
